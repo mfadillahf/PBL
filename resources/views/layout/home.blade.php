@@ -10,8 +10,7 @@
     <meta name="description" content="">
 
     <!-- Google Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700%7COpen+Sans:400,400i,600,700'
-        rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700%7COpen+Sans:400,400i,600,700' rel='stylesheet'>
 
     <!-- Css -->
     <link rel="stylesheet" href="/front/css/bootstrap.min.css" />
@@ -74,8 +73,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <button type="button" class="navbar-toggle" data-toggle="collapse"
-                                    data-target="#navbar-collapse">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
                                     <span class="sr-only">Toggle navigation</span>
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
@@ -124,14 +122,11 @@
                                                                         <span>{{$category->nama_kategori}}</span>
                                                                     </li>
                                                                     @php
-                                                                    $subcategories =
-                                                                    App\Models\Subcategory::where('id_kategori',
-                                                                    $category->id)->get();
+                                                                    $subcategories = App\Models\Subcategory::where('id_kategori', $category->id)->get();
                                                                     @endphp
                                                                     @foreach ($subcategories as $subcategory)
                                                                     <li>
-                                                                        <a
-                                                                            href="/products/{{$subcategory->id}}">{{$subcategory->nama_subkategori}}</a>
+                                                                        <a href="/products/{{$subcategory->id}}">{{$subcategory->nama_subkategori}}</a>
                                                                     </li>
                                                                     @endforeach
                                                                 </ul>
@@ -161,6 +156,12 @@
                                             </form>
                                         </li>
 
+                                        @if (Auth::guard('webmember')->check())
+                                        <li class="dropdown">
+                                            <a href="/orders">My Orders</a>
+                                        </li>
+                                        @endif
+
                                     </ul> <!-- end menu -->
                                 </div> <!-- end collapse -->
                             </div> <!-- end col -->
@@ -169,7 +170,7 @@
                                 <ul>
                                     <li class="nav-register">
                                         @if (Auth::guard('webmember')->check())
-                                        <a href="/profile">{{Auth::guard('webmember')->user()->nama_member}} </a>
+                                        <a href="">{{Auth::guard('webmember')->user()->nama_member}} </a>
                                         @else
                                         <a href="/login_member">Login </a>
                                         @endif

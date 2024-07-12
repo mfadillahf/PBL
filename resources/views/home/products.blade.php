@@ -3,6 +3,14 @@
 @section('title', 'List Products')
 
 @section('content')
+<style>
+    .product-img img {
+        width: 100%;
+        height: 300px; /* Sesuaikan tinggi yang diinginkan */
+        object-fit: cover;
+    }
+</style>
+
 <!-- Catalogue -->
 <section class="section-wrap pt-80 pb-40 catalogue">
     <div class="container relative">
